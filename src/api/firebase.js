@@ -6,7 +6,13 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { getDatabase, ref, set, get, remove } from 'firebase/database';
+import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  remove,
+} from 'firebase/database';
 import { v4 as uuid } from 'uuid';
 
 const firebaseConfig = {
@@ -37,6 +43,7 @@ export function onAuthStateChange(callback) {
   });
 }
 
+// network - async
 async function adminUser(user) {
   return get(ref(database, 'admins')) //
     .then((snapshot) => {
@@ -60,6 +67,15 @@ export async function addNewProduct(product, imageUrl) {
   });
 }
 
+export async function getProductsPage(page) {
+  return get(ref(database, `products/${page}`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      return Object.values(snapshot.val());
+    }
+    return [];
+  });
+}
+
 export async function getProducts() {
   return get(ref(database, 'products')).then((snapshot) => {
     if (snapshot.exists()) {
@@ -68,6 +84,7 @@ export async function getProducts() {
     return [];
   });
 }
+
 
 export async function getCart(userId) {
   return get(ref(database, `cart/${userId}`)).then((snapshot) => {

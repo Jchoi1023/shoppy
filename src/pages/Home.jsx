@@ -1,11 +1,17 @@
 import React from 'react';
-import Banner from '../components/Banner';
+import Footer from '../components/Footer';
+import Main from '../components/Main';
 import Products from '../components/Products';
 
 export default function Home() {
-    return <>
-    <Banner />
-    <Products />
+  return (
+    <>
+      <Main />
+      <div className='hidden'>
+      <Products/>
+      </div>
+      <Footer/>
+    
     </>
+  );
 }
-

@@ -1,21 +1,20 @@
 import React from 'react';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import {AiOutlineShopping } from 'react-icons/ai';
 import useCart from '../hooks/useCart';
 
 export default function CartStatus() {
-
   const {
     cartQuery: { data: products },
   } = useCart();
-  
+
+  const totalQuantity =
+    products && products.reduce((prev, current) => prev + current.quantity, 0);
+
   return (
-    <div className='relative'>
-      <AiOutlineShoppingCart className='text-4xl' />
-      {products && (
-        <p className='w-6 h-6 text-center bg-brand text-white rounded-full absolute -top-1 -right-2'>
-          {products.length}
-        </p>
-      )}
+    <div className='flex m-1 mr-1'>
+      <AiOutlineShopping className='text-xl' />
+      <p>Bag</p>
+      {products && <p className='w-5 h-4.5 text-center'>{totalQuantity}</p>}
     </div>
   );
 }

@@ -1,10 +1,8 @@
 import React from 'react';
 import CartItems from '../components/CartItems';
-import { BsFillPlusCircleFill } from 'react-icons/bs';
-import { FaEquals } from 'react-icons/fa';
 import PriceCard from '../components/PriceCard';
-import Button from '../components/ui/Button';
 import useCart from '../hooks/useCart';
+import ItemCount from '../components/ItemCount';
 
 const SHIPPING = 10;
 export default function Cart() {
@@ -22,28 +20,29 @@ export default function Cart() {
     );
 
   return (
-    <section className='p-8 flex flex-col'>
-      <p className='text-2xl text-center font-bold pb-4 border-b border-gray-300'>
-        My Cart
-      </p>
+    <section className='p-8'>
+      <div className='flex flex-col items-center text-2xl ali font-bold pb-4 border-b border-gray-300'>
+       <p>In your bag</p>
+       <ItemCount/>
+      </div>  
       {!hasProducts && <p>No items.</p>}
       {hasProducts && (
-        <>
-          <ul className='border-b border-gray-300 mb-8 p-4 px-8'>
+        <div className='lg:mx-40 xl:flex justify-between '>
+          <ul className='border-b border-gray-300 p-4 px-8'>
             {products &&
               products.map((product) => (
                 <CartItems key={product.id} product={product}/>
               ))}
           </ul>
-          <div className='flex justify-between items-center mb-6 px-2 md:p-8 lg:px-16'>
-            <PriceCard text='Price' price={totalPrice} />
-            <BsFillPlusCircleFill className='shrink-0' />
+          <div className='flex flex-col w-80 max-lg:m-auto'>
+            <p className='font-bold text-center py-5'>Order Summary</p>
+            <PriceCard className='underline' text='Price' price={totalPrice} />
             <PriceCard text='Shipping' price={SHIPPING} />
-            <FaEquals className='shrink-0' />
-            <PriceCard text='Total' price={totalPrice + SHIPPING} />
-          </div>
-          <Button text='Order' />
-        </>
+           <hr/>
+            <PriceCard text='Order total' price={totalPrice + SHIPPING} />
+           <button className='bg-zinc-700 text-white h-10 mt-5'>Proceed Checkout</button>
+          </div>    
+        </div>
       )}
     </section>
   );
