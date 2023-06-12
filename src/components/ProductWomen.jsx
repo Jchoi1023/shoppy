@@ -14,7 +14,7 @@ export default function ProductWomen() {
     <>
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      <ul className='grid grid-cols-1 md:grid-cols-2 lg-grid-cols-4 gap-4 p-4 md:px-64 2xl:px-96 px-4'>
+      <ul className='grid grid-cols-1 md:grid-cols-2 lg-grid-cols-4 gap-9 p-4 2xl:px-96 px-4'>
         {filtered &&
           filtered.map((product) => (
             <ProductCard key={product.id} product={product} />

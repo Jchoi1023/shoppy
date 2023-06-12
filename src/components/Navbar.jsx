@@ -5,6 +5,9 @@ import { GoThreeBars } from 'react-icons/go';
 import Button from './ui/Button';
 import { useAuthContext } from './context/AuthContext';
 import CartStatus from './CartStatus';
+import { AiOutlineHeart } from 'react-icons/ai';
+
+// const filters = ['Women', 'Men', 'Shoes', 'Accessories'];
 
 export default function Navbar() {
   const { user, login, logout } = useAuthContext();
@@ -17,7 +20,7 @@ export default function Navbar() {
           <GoThreeBars className='text-4xl mt-3' />
         </button>
         {showMenu && (
-          <div className='flex flex-col text-sm pt-6 bg-salmon w-5 h-50'>
+          <ul className='flex flex-col text-sm pt-6 bg-salmon w-5 h-50'>
             <Link className='pt-5' to='/products/women'>
               Women
             </Link>
@@ -30,13 +33,13 @@ export default function Navbar() {
             <Link className='pt-5' to='/products/accessories'>
               Accessories
             </Link>
-          </div>
+          </ul>
         )}
       </div>
-
       <Link to='/' className='text-4xl pt-2 hover:underline max-md:pr-12'>
         <h1>JIHYECHOI</h1>
       </Link>
+     
       <Link className='pt-5 hover:underline max-md:hidden' to='/products/women'>
         Women
       </Link>
@@ -46,10 +49,17 @@ export default function Navbar() {
       <Link className='pt-5 hover:underline max-md:hidden' to='/products/shoes'>
         Shoes
       </Link>
-      <Link className='pt-5 hover:underline max-md:hidden' to='/products/accessories'>
+      <Link
+        className='pt-5 hover:underline max-md:hidden'
+        to='/products/accessories'
+      >
         Accessories
       </Link>
       <div className='flex  text-sm justify-between'>
+        <Link to='/favorite' className='flex hover:underline text-sm pt-5'>
+          <AiOutlineHeart className='mt-1' />
+          Favorites
+        </Link>
         {user && (
           <Link to='/cart' className='hover:underline text-sm pt-5'>
             <CartStatus />
@@ -57,12 +67,11 @@ export default function Navbar() {
         )}
         {user && user.isAdmin && (
           <Link to='/products/new' className='hover:underline text-sm pt-5'>
-            <BsFillPencilFill className='mt-2' />
+            <BsFillPencilFill className='mt-1' />
           </Link>
         )}
-        {/* {user && <User user={user} />} */}
-        {!user && <Button text={'Login'} onClick={login} />}
-        {user && <Button text={'Logout'} onClick={logout} />}
+        {!user && <Button text={'Sign in'} onClick={login} />}
+        {user && <Button text={'Sign out'} onClick={logout} />}
       </div>
     </header>
   );

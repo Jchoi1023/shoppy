@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
     return (
-        <section className='columns-4 mt-8 mb-8 text-left text-zinc-500'>
+        <section className='text-center columns-4 mt-8 mb-8 text-left text-zinc-500'>
             <div>
                 <span className='font-bold text-sm'>Your Order</span>
                 <p className='text-xs mt-2'>Track Your Order</p>

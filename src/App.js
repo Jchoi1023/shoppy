@@ -7,7 +7,10 @@ import {QueryClientProvider, QueryClient} from '@tanstack/react-query';
 import Notification from './components/Notification';
 
 
+
+
 const queryClient = new QueryClient();
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>

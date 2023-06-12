@@ -11,7 +11,7 @@ export default function CartStatus() {
     products && products.reduce((prev, current) => prev + current.quantity, 0);
 
   return (
-    <div className='flex m-1 mr-1'>
+    <div className='flex ml-3 mr-1'>
       <AiOutlineShopping className='text-xl' />
       <p>Bag</p>
       {products && <p className='w-5 h-4.5 text-center'>{totalQuantity}</p>}

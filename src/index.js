@@ -15,6 +15,7 @@ import Women from './pages/Women';
 import Men from './pages/Men';
 import Accessories from './pages/Accessories';
 import Shoes from './pages/Shoes';
+import Favorite from './pages/Favorite';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+      { path: '/favorite', element: <Favorite /> },
     ],
   },
 ]);
