@@ -1,7 +1,6 @@
 import React from 'react';
 import { AiOutlineMinusSquare, AiOutlinePlusSquare } from 'react-icons/ai';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
-// import { addOrUpdateToCart, removeFromCart } from '../api/firebase';
 import useCart from '../hooks/useCart';
 
 export default function CartItems({

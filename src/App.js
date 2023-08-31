@@ -6,9 +6,6 @@ import { AuthContextProvider } from './components/context/AuthContext';
 import {QueryClientProvider, QueryClient} from '@tanstack/react-query';
 import Notification from './components/Notification';
 
-
-
-
 const queryClient = new QueryClient();
 
 function App() {
@@ -16,7 +13,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <AuthContextProvider>
         <Notification/>
-        <Navbar />
+        <Navbar/>
         <Outlet />
       </AuthContextProvider>
     </QueryClientProvider>

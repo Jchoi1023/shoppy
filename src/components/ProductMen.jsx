@@ -6,9 +6,7 @@ export default function ProductMen() {
   const {
     getProduct: { isLoading, error, data: products },
   } = useProducts();
-
   const filtered = products.filter((product) => product.category === 'Men');
-
   console.log(filtered);
   return (
     <>

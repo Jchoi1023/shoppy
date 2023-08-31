@@ -2,15 +2,12 @@ import React from 'react';
 import ProductCard from './ProductCard';
 import useProducts from '../hooks/useProducts';
 
-
-
 export default function Products() {
   const {
     getProduct: { isLoading, error, data: products },
   } = useProducts();
  
   return (
- 
     <div>
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}

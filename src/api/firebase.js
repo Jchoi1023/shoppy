@@ -85,7 +85,6 @@ export async function getProducts() {
   });
 }
 
-
 export async function getCart(userId) {
   return get(ref(database, `cart/${userId}`)).then((snapshot) => {
     const items = snapshot.val() || {};
@@ -99,4 +98,19 @@ export async function addOrUpdateToCart(userId, product) {
 
 export async function removeFromCart(userId, productId) {
   return remove(ref(database, `cart/${userId}/${productId}`));
+}
+
+export async function getFavorite(userId) {
+  return get(ref(database, `favorite/${userId}`)).then((snapshot) => {
+    const items = snapshot.val() || {};
+    return Object.values(items);
+  });
+}
+
+export async function addFavorite(userId, product) {
+  return set(ref(database, `favorite/${userId}/${product.id}`), product);
+}
+
+export async function removeFavorite(userId, productId) {
+  return remove(ref(database, `favorite/${userId}/${productId}`));
 }
