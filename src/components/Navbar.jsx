@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillPencilFill } from 'react-icons/bs';
-import { GoThreeBars } from 'react-icons/go';
+// import { GoThreeBars } from 'react-icons/go';
 import Button from './ui/Button';
 import { useAuthContext } from './context/AuthContext';
 import CartStatus from './CartStatus';
@@ -17,9 +17,9 @@ export default function Navbar() {
   return (
     <header className='flex justify-between border-b border-gray-300 p-2'>
       <div className='md:hidden'>
-        <button onClick={() => setShowMenu(!showMenu)}>
+        {/* <button onClick={() => setShowMenu(!showMenu)}>
           <GoThreeBars className='text-4xl mt-3' />
-        </button>
+        </button> */}
         {showMenu && (
           <ul className='flex flex-col text-sm pt-6 bg-salmon w-5 h-50'>
             {filters.map((value, index) => (
